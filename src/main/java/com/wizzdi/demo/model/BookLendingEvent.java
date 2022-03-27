@@ -15,8 +15,6 @@ public class BookLendingEvent extends SecuredBasic {
 
   private OffsetDateTime expectedTimeOfReturn;
 
-  private String fake;
-
   private OffsetDateTime lendTime;
 
   @ManyToOne(targetEntity = LibrarySubscriber.class)
@@ -63,20 +61,6 @@ public class BookLendingEvent extends SecuredBasic {
   public <T extends BookLendingEvent> T setExpectedTimeOfReturn(
       OffsetDateTime expectedTimeOfReturn) {
     this.expectedTimeOfReturn = expectedTimeOfReturn;
-    return (T) this;
-  }
-
-  /** @return fake */
-  public String getFake() {
-    return this.fake;
-  }
-
-  /**
-   * @param fake fake to set
-   * @return BookLendingEvent
-   */
-  public <T extends BookLendingEvent> T setFake(String fake) {
-    this.fake = fake;
     return (T) this;
   }
 
