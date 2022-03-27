@@ -43,5 +43,12 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.DEMO_SSH_IP }} >> ~/.ssh/known_hosts
       - name: Deploy with rsync
         run: rsync -avz ./target/book-no-code-demo-model-*.jar ${{ secrets.SERVER_USER }}@${{ secrets.DEMO_SSH_IP }}:/home/flexicore/entities/
+      - name: restart flexicore
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: sudo /bin/systemctl restart flexicore.service
+          host: ${{ secrets.DEMO_SSH_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          privateKey: ${{ secrets.DEMO_SERVER_SSH_KEY}}
 
 
