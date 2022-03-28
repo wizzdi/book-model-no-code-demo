@@ -17,8 +17,16 @@ public class BookBorrow extends SecuredBasic {
 
   private OffsetDateTime borrownActualReturn;
 
+  private String four;
+
   @ManyToOne(targetEntity = LibrarySubscriber.class)
   private LibrarySubscriber librarySubscriber;
+
+  private String one;
+
+  private String three;
+
+  private String two;
 
   /** @return book */
   @ManyToOne(targetEntity = Book.class)
@@ -77,6 +85,20 @@ public class BookBorrow extends SecuredBasic {
     return (T) this;
   }
 
+  /** @return four */
+  public String getFour() {
+    return this.four;
+  }
+
+  /**
+   * @param four four to set
+   * @return BookBorrow
+   */
+  public <T extends BookBorrow> T setFour(String four) {
+    this.four = four;
+    return (T) this;
+  }
+
   /** @return librarySubscriber */
   @ManyToOne(targetEntity = LibrarySubscriber.class)
   public LibrarySubscriber getLibrarySubscriber() {
@@ -89,6 +111,48 @@ public class BookBorrow extends SecuredBasic {
    */
   public <T extends BookBorrow> T setLibrarySubscriber(LibrarySubscriber librarySubscriber) {
     this.librarySubscriber = librarySubscriber;
+    return (T) this;
+  }
+
+  /** @return one */
+  public String getOne() {
+    return this.one;
+  }
+
+  /**
+   * @param one one to set
+   * @return BookBorrow
+   */
+  public <T extends BookBorrow> T setOne(String one) {
+    this.one = one;
+    return (T) this;
+  }
+
+  /** @return three */
+  public String getThree() {
+    return this.three;
+  }
+
+  /**
+   * @param three three to set
+   * @return BookBorrow
+   */
+  public <T extends BookBorrow> T setThree(String three) {
+    this.three = three;
+    return (T) this;
+  }
+
+  /** @return two */
+  public String getTwo() {
+    return this.two;
+  }
+
+  /**
+   * @param two two to set
+   * @return BookBorrow
+   */
+  public <T extends BookBorrow> T setTwo(String two) {
+    this.two = two;
     return (T) this;
   }
 }
