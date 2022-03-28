@@ -13,11 +13,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-                <spring-boot-dependencies.version>2.5.2</spring-boot-dependencies.version>
-            
                 <swagger-core.version>2.1.12</swagger-core.version>
             
                 <flexicore-boot-dependencies.version>2.1.10</flexicore-boot-dependencies.version>
+            
+                <spring-boot-dependencies.version>2.5.2</spring-boot-dependencies.version>
             </properties>
     
 
@@ -26,17 +26,17 @@
 
         
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-dependencies.version}</version>
+                <groupId>com.wizzdi</groupId>
+                <artifactId>flexicore-boot-dependencies</artifactId>
+                <version>${flexicore-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         
             <dependency>
-                <groupId>com.wizzdi</groupId>
-                <artifactId>flexicore-boot-dependencies</artifactId>
-                <version>${flexicore-boot-dependencies.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -58,6 +58,15 @@
         
 
             <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-core</artifactId>
+                <version>${swagger-core.version}</version>
+                <scope>provided</scope>
+                
+            </dependency>
+        
+
+            <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 
@@ -71,42 +80,6 @@
                 <artifactId>flexicore-boot-starter-data-jpa-eclipselink</artifactId>
                 
                 <scope>test</scope>
-                
-            </dependency>
-        
-
-            <dependency>
-                <groupId>org.junit.platform</groupId>
-                <artifactId>junit-platform-launcher</artifactId>
-                
-                <scope>test</scope>
-                
-            </dependency>
-        
-
-            <dependency>
-                <groupId>org.junit.vintage</groupId>
-                <artifactId>junit-vintage-engine</artifactId>
-                
-                <scope>test</scope>
-                
-            </dependency>
-        
-
-            <dependency>
-                <groupId>com.wizzdi</groupId>
-                <artifactId>flexicore-boot</artifactId>
-                
-                <scope>provided</scope>
-                
-            </dependency>
-        
-
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-core</artifactId>
-                <version>${swagger-core.version}</version>
-                <scope>provided</scope>
                 
             </dependency>
         
@@ -132,6 +105,15 @@
                             <artifactId>junit</artifactId>
                         </exclusion>
                 </exclusions>
+                
+            </dependency>
+        
+
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-launcher</artifactId>
+                
+                <scope>test</scope>
                 
             </dependency>
         
@@ -164,10 +146,10 @@
         
 
             <dependency>
-                <groupId>com.wizzdi</groupId>
-                <artifactId>flexicore-boot-starter-web</artifactId>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
                 
-                <scope>provided</scope>
+                <scope>test</scope>
                 
             </dependency>
         
