@@ -10,9 +10,11 @@
             
                 <class>com.wizzdi.demo.model.Author</class>
             
+                <class>com.wizzdi.demo.model.AuthorToBook</class>
+            
                 <class>com.wizzdi.demo.model.Book</class>
             
-                <class>com.wizzdi.demo.model.BookLendingEvent</class>
+                <class>com.wizzdi.demo.model.BookBorrow</class>
             
                 <class>com.wizzdi.demo.model.Library</class>
             

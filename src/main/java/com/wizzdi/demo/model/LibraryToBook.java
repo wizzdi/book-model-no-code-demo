@@ -13,6 +13,8 @@ public class LibraryToBook extends SecuredBasic {
   @ManyToOne(targetEntity = Library.class)
   private Library library;
 
+  private int quantity;
+
   /** @return book */
   @ManyToOne(targetEntity = Book.class)
   public Book getBook() {
@@ -40,6 +42,20 @@ public class LibraryToBook extends SecuredBasic {
    */
   public <T extends LibraryToBook> T setLibrary(Library library) {
     this.library = library;
+    return (T) this;
+  }
+
+  /** @return quantity */
+  public int getQuantity() {
+    return this.quantity;
+  }
+
+  /**
+   * @param quantity quantity to set
+   * @return LibraryToBook
+   */
+  public <T extends LibraryToBook> T setQuantity(int quantity) {
+    this.quantity = quantity;
     return (T) this;
   }
 }
