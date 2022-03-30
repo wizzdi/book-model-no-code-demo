@@ -8,25 +8,32 @@ import javax.persistence.ManyToOne;
 @Entity
 public class BookBorrow extends SecuredBasic {
 
+  @ManyToOne(targetEntity = LibrarySubscriber.class)
+  private LibrarySubscriber librarySubscriber;
+
   @ManyToOne(targetEntity = Book.class)
   private Book book;
 
   private OffsetDateTime borrowBegin;
 
-  private OffsetDateTime borrowRequiredReturn;
+  private OffsetDateTime borrowExpectedReturn;
 
-  private OffsetDateTime borrownActualReturn;
+  private OffsetDateTime borrowActualReturn;
 
-  private String four;
-
+  /** @return librarySubscriber */
   @ManyToOne(targetEntity = LibrarySubscriber.class)
-  private LibrarySubscriber librarySubscriber;
+  public LibrarySubscriber getLibrarySubscriber() {
+    return this.librarySubscriber;
+  }
 
-  private String one;
-
-  private String three;
-
-  private String two;
+  /**
+   * @param librarySubscriber librarySubscriber to set
+   * @return BookBorrow
+   */
+  public <T extends BookBorrow> T setLibrarySubscriber(LibrarySubscriber librarySubscriber) {
+    this.librarySubscriber = librarySubscriber;
+    return (T) this;
+  }
 
   /** @return book */
   @ManyToOne(targetEntity = Book.class)
@@ -57,102 +64,31 @@ public class BookBorrow extends SecuredBasic {
     return (T) this;
   }
 
-  /** @return borrowRequiredReturn */
-  public OffsetDateTime getBorrowRequiredReturn() {
-    return this.borrowRequiredReturn;
+  /** @return borrowExpectedReturn */
+  public OffsetDateTime getBorrowExpectedReturn() {
+    return this.borrowExpectedReturn;
   }
 
   /**
-   * @param borrowRequiredReturn borrowRequiredReturn to set
+   * @param borrowExpectedReturn borrowExpectedReturn to set
    * @return BookBorrow
    */
-  public <T extends BookBorrow> T setBorrowRequiredReturn(OffsetDateTime borrowRequiredReturn) {
-    this.borrowRequiredReturn = borrowRequiredReturn;
+  public <T extends BookBorrow> T setBorrowExpectedReturn(OffsetDateTime borrowExpectedReturn) {
+    this.borrowExpectedReturn = borrowExpectedReturn;
     return (T) this;
   }
 
-  /** @return borrownActualReturn */
-  public OffsetDateTime getBorrownActualReturn() {
-    return this.borrownActualReturn;
+  /** @return borrowActualReturn */
+  public OffsetDateTime getBorrowActualReturn() {
+    return this.borrowActualReturn;
   }
 
   /**
-   * @param borrownActualReturn borrownActualReturn to set
+   * @param borrowActualReturn borrowActualReturn to set
    * @return BookBorrow
    */
-  public <T extends BookBorrow> T setBorrownActualReturn(OffsetDateTime borrownActualReturn) {
-    this.borrownActualReturn = borrownActualReturn;
-    return (T) this;
-  }
-
-  /** @return four */
-  public String getFour() {
-    return this.four;
-  }
-
-  /**
-   * @param four four to set
-   * @return BookBorrow
-   */
-  public <T extends BookBorrow> T setFour(String four) {
-    this.four = four;
-    return (T) this;
-  }
-
-  /** @return librarySubscriber */
-  @ManyToOne(targetEntity = LibrarySubscriber.class)
-  public LibrarySubscriber getLibrarySubscriber() {
-    return this.librarySubscriber;
-  }
-
-  /**
-   * @param librarySubscriber librarySubscriber to set
-   * @return BookBorrow
-   */
-  public <T extends BookBorrow> T setLibrarySubscriber(LibrarySubscriber librarySubscriber) {
-    this.librarySubscriber = librarySubscriber;
-    return (T) this;
-  }
-
-  /** @return one */
-  public String getOne() {
-    return this.one;
-  }
-
-  /**
-   * @param one one to set
-   * @return BookBorrow
-   */
-  public <T extends BookBorrow> T setOne(String one) {
-    this.one = one;
-    return (T) this;
-  }
-
-  /** @return three */
-  public String getThree() {
-    return this.three;
-  }
-
-  /**
-   * @param three three to set
-   * @return BookBorrow
-   */
-  public <T extends BookBorrow> T setThree(String three) {
-    this.three = three;
-    return (T) this;
-  }
-
-  /** @return two */
-  public String getTwo() {
-    return this.two;
-  }
-
-  /**
-   * @param two two to set
-   * @return BookBorrow
-   */
-  public <T extends BookBorrow> T setTwo(String two) {
-    this.two = two;
+  public <T extends BookBorrow> T setBorrowActualReturn(OffsetDateTime borrowActualReturn) {
+    this.borrowActualReturn = borrowActualReturn;
     return (T) this;
   }
 }
