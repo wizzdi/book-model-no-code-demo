@@ -7,28 +7,13 @@ import javax.persistence.ManyToOne;
 @Entity
 public class LibraryToBook extends SecuredBasic {
 
-  @ManyToOne(targetEntity = Book.class)
-  private Book book;
-
   @ManyToOne(targetEntity = Library.class)
   private Library library;
 
-  private int quantity;
-
-  /** @return book */
   @ManyToOne(targetEntity = Book.class)
-  public Book getBook() {
-    return this.book;
-  }
+  private Book book;
 
-  /**
-   * @param book book to set
-   * @return LibraryToBook
-   */
-  public <T extends LibraryToBook> T setBook(Book book) {
-    this.book = book;
-    return (T) this;
-  }
+  private int quantity;
 
   /** @return library */
   @ManyToOne(targetEntity = Library.class)
@@ -42,6 +27,21 @@ public class LibraryToBook extends SecuredBasic {
    */
   public <T extends LibraryToBook> T setLibrary(Library library) {
     this.library = library;
+    return (T) this;
+  }
+
+  /** @return book */
+  @ManyToOne(targetEntity = Book.class)
+  public Book getBook() {
+    return this.book;
+  }
+
+  /**
+   * @param book book to set
+   * @return LibraryToBook
+   */
+  public <T extends LibraryToBook> T setBook(Book book) {
+    this.book = book;
     return (T) this;
   }
 
